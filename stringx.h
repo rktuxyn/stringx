@@ -44,7 +44,6 @@ public:
 	}
 	void dispose() {
 		free(pData);
-		pData = NULL;
 		_isDisposed = true;
 		delete pData;
 	};
