@@ -1,4 +1,10 @@
-//11:17 PM 10/30/2017
+/**
+* Copyright (c) 2018, SOW (https://www.facebook.com/safeonlineworld). (https://github.com/RKTUXYN) All rights reserved.
+* @author {SOW}
+* Copyrights licensed under the New BSD License.
+* See the accompanying LICENSE file for terms.
+*/
+//11:17 PM 10/30/2018
 #pragma once
 #ifndef NULL
 #ifdef __cplusplus
