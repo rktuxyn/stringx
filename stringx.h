@@ -43,7 +43,6 @@ public:
 		this->dispose();
 	}
 	void dispose() {
-		free(pData);
 		_isDisposed = true;
 		delete pData;
 	};
