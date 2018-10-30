@@ -46,11 +46,15 @@ public:
 		_isDisposed = true;
 		delete pData;
 	};
-	Stringx &operator=(const Type &_Right) {
-		if (!_isDisposed) {
-			free(pData);
+	Stringx &operator=(Type *p) {
+		if (p == NULL) {
+			dispose();
+			return (*this);
 		}
-		pData = new Type(_Right);
+		if (!_isDisposed) {
+			dispose();
+		}
+		pData = p;
 		_isDisposed = false;
 		return (*this);
 	};
