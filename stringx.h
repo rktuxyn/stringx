@@ -120,7 +120,7 @@ public:
 	inline bool operator==(const Type &_Right)const {
 		// test for iterator equality
 		if (_isDisposed)noexcept("Object Disposed...");
-		return pData->c_str() == _Right;
+		return pData->_Equal(_Right);
 	};
 	inline bool operator!=(const Type &_Right)const {
 		if (_isDisposed)noexcept("Object Disposed...");
@@ -140,7 +140,7 @@ public:
 	};
 	inline bool operator>=(const Type& _Right) const {
 		if (_isDisposed)noexcept("Object Disposed...");
-		return (!(pData < _Right));
+		return pData->compare(_Right) >= 0;
 	};
 protected:
 	//
