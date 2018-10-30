@@ -4,7 +4,7 @@
 * Copyrights licensed under the New BSD License.
 * See the accompanying LICENSE file for terms.
 */
-#include "stringx"
+#include "stringx.h"
 int
  main() {
 	stringx str("run from here");
