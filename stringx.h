@@ -46,6 +46,7 @@ public:
 		_isDisposed = true;
 		delete pData;
 	};
+	
 	Stringx &operator=(Type *p) {
 		if (p == NULL) {
 			dispose();
@@ -58,14 +59,7 @@ public:
 		_isDisposed = false;
 		return (*this);
 	};
-	Stringx &operator=(Type *p) {
-		if (!_isDisposed) {
-			free(pData);
-		}
-		pData = p;
-		_isDisposed = false;
-		return (*this);
-	};
+	
 	Stringx& operator+=(const Stringx& _Off) {
 		if (_isDisposed) {
 			pData = new Type();
@@ -74,6 +68,7 @@ public:
 		pData->operator+=(_Off.pData->c_str());
 		return (*this);
 	};
+	
 	Stringx& operator+(const Stringx& _Off) {
 		if (_isDisposed) {
 			pData = new Type();
@@ -82,14 +77,18 @@ public:
 		pData->operator+=(_Off.pData->c_str());
 		return (*this);
 	};
+	
 	bool IsNull() { return pData == NULL; };
+	
 	Type& get_Data() {
 		return *pData;
 	};
+	
 	Type* operator->()const {
 		if (_isDisposed)noexcept("Object Disposed...");
 		return pData;
 	};
+	
 	Type& operator+=(Type &_Off) {
 		if (_isDisposed) {
 			pData = new Type();
@@ -98,6 +97,7 @@ public:
 		pData->operator+=(_Off.pData->c_str());
 		return (*this);
 	};
+	
 	Type& operator+(const char _Off)const {
 		if (_isDisposed) {
 			pData = new Type();
@@ -105,6 +105,7 @@ public:
 		}
 		return pData->operator+(_Off);
 	};
+	
 	Type& operator+=(const char _Off) {
 		if (_isDisposed) {
 			pData = new Type();
@@ -112,6 +113,7 @@ public:
 		}
 		return pData->operator+=(_Off);
 	};
+	
 	Type& operator+=(Type _Off) {
 		if (_isDisposed) {
 			pData = new Type();
@@ -119,32 +121,40 @@ public:
 		}
 		return pData->operator+=(_Off);
 	};
+	
 	inline bool operator==(const Type &_Right)const {
 		// test for iterator equality
 		if (_isDisposed)noexcept("Object Disposed...");
 		return pData->_Equal(_Right);
 	};
+	
 	inline bool operator!=(const Type &_Right)const {
 		if (_isDisposed)noexcept("Object Disposed...");
 		return (!(pData->compare(_Right)));
 	};
+	
 	inline bool operator<(const Type& _Right) const {	// test if this < _Right
 		if (_isDisposed)noexcept("Object Disposed...");
 		return pData->compare(_Right) < 0;
 	};
+	
 	inline bool operator>(const Type& _Right) const {	// test if this > _Right
 		if (_isDisposed)noexcept("Object Disposed...");
 		return pData->operator>(_Right) == true;
 	};
+	
 	inline bool operator<=(const Type& _Right) const {	// test if this <= _Right
 		if (_isDisposed)noexcept("Object Disposed...");
 		return pData->compare(_Right) <= 0;
 	};
+	
 	inline bool operator>=(const Type& _Right) const {
 		if (_isDisposed)noexcept("Object Disposed...");
 		return pData->compare(_Right) >= 0;
 	};
+	
 protected:
 	//
 };
-using stringx = Stringx<std::string>;
+typedef Stringx<std::string> stringx;
+//using stringx = Stringx<std::string>;
